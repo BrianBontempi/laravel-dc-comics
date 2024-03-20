@@ -17,7 +17,6 @@
     padding: 4rem 0;
 
     .create-btn {
-        margin-left: 20px;
         padding: 15px 18px;
         font-size: 18px;
         border-radius: 25px;
@@ -35,12 +34,18 @@
         }
     }
 
+    .create-comic-container {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
     .card-container {
         display: flex;
         justify-content: center;
         align-items: flex-start;
         flex-wrap: wrap;
-        margin-top: 2rem;
+        margin-top: 1rem;
 
         .comics-card {
             flex-basis: calc(100% / 6);
@@ -161,7 +166,7 @@
 
         .talent {
 
-            .d-flex {
+            .display-flex {
                 align-items: baseline;
 
                 .row {
@@ -192,7 +197,7 @@
 
         .specs {
 
-            .d-flex {
+            .display-flex {
                 align-items: baseline;
 
                 .row {
