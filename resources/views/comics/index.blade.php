@@ -4,10 +4,13 @@
 
 @section('main-content')
 <section id="comics-list" class="upper-content">
+    <div class="container">
+        <a class="create-btn" href="{{ route('comics.create')}}">Aggiungi un fumetto</a>
+    </div>
     <div class="container card-container">
         @foreach ($comics as $comic)
         <div class="comics-card">
-            <a href="{{ route('comics.show', $comic) }}">
+            <a href="{{ route('comics.show', $comic->id) }}">
                 <img class="comic-image" src="{{ $comic->thumb }}" alt="{{ $comic->series }}">
                 <h1>{{ $comic['series'] }}</h1>
             </a>
