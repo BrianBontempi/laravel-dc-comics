@@ -1,0 +1,222 @@
+#movies-list {
+
+    h1 {
+        color: #fff;
+    }
+
+    p {
+        margin-top: 20px;
+        line-height: 25px;
+        color: #fff;
+    }
+}
+
+
+.upper-content {
+    background-color: $darkgray;
+    padding: 4rem 0;
+
+    .card-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+
+        .comics-card {
+            flex-basis: calc(100% / 6);
+            padding: 20px;
+
+            a {
+                color: #fff;
+            }
+
+            .comic-image {
+                height: 320px;
+                object-fit: cover;
+
+            }
+
+            h1 {
+                font-size: 20px;
+                margin-top: 15px;
+            }
+        }
+    }
+}
+
+.lower-content {
+    background-color: #0282F9;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+
+        li:last-child img {
+            height: 40px;
+        }
+
+        li {
+            text-transform: uppercase;
+            font-weight: 300;
+            font-size: 16px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 3rem;
+            cursor: pointer;
+
+            img {
+                height: 60px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+#product-description {
+    background-color: $white;
+    padding: 2rem 0;
+
+    .container {
+        width: 1200px;
+    }
+
+    .card-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        .comics-card {
+            flex-basis: 15%;
+
+            .comic-image {
+                height: 320px;
+                object-fit: cover;
+
+            }
+        }
+    }
+}
+
+.details {
+    display: flex;
+
+    h1 {
+        color: #003F5E;
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        line-height: 30px;
+        font-weight: 700;
+    }
+
+    .banner-adv {
+        .adv {
+            width: 1000px;
+        }
+    }
+}
+
+
+#info-section {
+    width: 100%;
+    padding: 20px 0;
+    background-color: #F6F6F6;
+
+    .container {
+        width: 55%;
+    }
+
+    .wrapper {
+        display: flex;
+        gap: 70px;
+
+        .talent {
+
+            .d-flex {
+                align-items: baseline;
+
+                .row {
+                    display: flex;
+                    border-bottom: 1px solid gray;
+                    padding-bottom: 10px;
+
+                    .col {
+                        margin-top: 10px;
+                        flex-basis: 50%;
+
+                        p {
+                            font-size: 14px;
+                            font-weight: 600;
+                        }
+
+                        a {
+                            color: #4fc5ec;
+                            font-size: 14px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        .specs {
+
+            .d-flex {
+                align-items: baseline;
+
+                .row {
+                    display: flex;
+                    border-bottom: 1px solid gray;
+                    padding-bottom: 10px;
+
+                    .col {
+                        margin-top: 10px;
+                        flex-basis: 50%;
+
+                        p {
+                            font-size: 14px;
+                            font-weight: 600;
+                        }
+
+                        .uppercase {
+                            text-transform: uppercase
+                        }
+
+                        a {
+                            color: #4fc5ec;
+                            font-size: 14px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        h1 {
+            padding-bottom: 20px;
+            border-bottom: 1px solid gray;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 50%;
+        }
+    }
+}

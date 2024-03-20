@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: $white;
+    font-family: $main-font;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: $black;
+    text-decoration: none;
+    cursor: pointer;
+}
