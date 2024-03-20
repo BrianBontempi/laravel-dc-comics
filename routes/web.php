@@ -10,6 +10,10 @@ Route::get('/', function () {
 // Lista Comics
 Route::get('/comics', [ComicController::class, 'index'])->name('comics.index');
 
+// # Rotta per il form di modifica del comic
+Route::get('/comics/{comic}/edit', [ComicController::class, 'edit'])->name('comics.edit');
+
+
 Route::get('/movies', function () {
     return view('movies');
 })->name('movies');
