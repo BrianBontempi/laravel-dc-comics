@@ -4,8 +4,10 @@
     </figure>
     <nav>
         <ul>
-            <li><a href="{{ url('/')}}" class=" {{ request()->routeIs('home') ? 'active' : '' }}">home</a></li>
-            <li><a href="{{ url('/comics')}}" class=" {{ request()->routeIs('comics') ? 'active' : '' }}">comics</a></li>
+            <li>
+                <a href="{{ url('/')}}" class=" {{ request()->routeIs('home') ? 'active' : '' }}">home</a>
+            </li>
+            <li><a href="{{ route('comics.index')}}" class=" {{ request()->routeIs('comics.index') ? 'active' : '' }}">comics</a></li>
             <li><a href="{{ route('movies')}}" class=" {{ request()->routeIs('movies') ? 'active' : '' }}">movies</a></li>
             <li><a>tv</a></li>
             <li><a>games</a></li>
