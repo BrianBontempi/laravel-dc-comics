@@ -22,6 +22,49 @@
 </section>
 <section id="info-section">
     <div class="wrapper container">
+        <div class="talent container">
+            <h1>Talent</h1>
+            <div class="d-flex">
+                <div class="row">
+                    <div class="col">
+                        <p>Art by:</p>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li>
+                                @foreach (explode(', ', $comic->artists) as $artist)
+                                <a href="#">
+                                    {{ $artist }}
+                                </a>
+                                @if (!$loop->last)
+                                ,
+                                @endif
+                                @endforeach
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Written by:</p>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li>
+                                @foreach (explode(', ', $comic->writers) as $writer)
+                                <a href="#">
+                                    {{ $writer }}
+                                </a>
+                                @if (!$loop->last)
+                                ,
+                                @endif
+                                @endforeach
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="specs container">
             <h1>Specs</h1>
             <div class="d-flex">

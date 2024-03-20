@@ -8,6 +8,13 @@
 
     <link rel="icon" href="{{ asset('img/dc-logo.png') }}">
 
+    <style>
+        body {
+            visibility: hidden
+        }
+
+    </style>
+
     {{-- Vite --}}
     @vite('resources/js/app.js')
 </head>
