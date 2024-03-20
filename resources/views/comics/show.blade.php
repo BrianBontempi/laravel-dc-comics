@@ -24,7 +24,7 @@
     <div class="wrapper container">
         <div class="talent container">
             <h1>Talent</h1>
-            <div class="d-flex">
+            <div class="display-flex">
                 <div class="row">
                     <div class="col">
                         <p>Art by:</p>
@@ -67,7 +67,7 @@
         </div>
         <div class="specs container">
             <h1>Specs</h1>
-            <div class="d-flex">
+            <div class="display-flex">
                 <div class="row">
                     <div class="col">
                         <p>Series:</p>
