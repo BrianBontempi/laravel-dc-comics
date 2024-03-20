@@ -5,8 +5,20 @@
 @section('main-content')
 <section id="comics-list" class="upper-content">
     <div class="container">
-        <a class="create-btn" href="{{ route('comics.index')}}">Torna indietro</a>
+        <a class="create-btn ms-3" href="{{ route('comics.index')}}">Torna indietro</a>
+        @if ($errors->any())
+        <div class="alert alert-danger mt-5">
+            <h4>Some fields are invalid</h4>
+            <ul class="ms-3">
+                @foreach ($errors->all() as $error)
+                <li class="ms-3">
+                    {{ $error }}
+                </li>
+                @endforeach
+            </ul>
+        </div>
     </div>
+    @endif
     <div class="container create-comic-container">
         <form action="{{ route('comics.store') }}" method="POST">
             @csrf
@@ -17,7 +29,7 @@
                         <label for="title" class="form-label">
                             <h2 class="text-white">Inserisci il titolo</h2>
                         </label>
-                        <input type="text" name="title" class="form-control" id="title" placeholder="Es.: Action Comics #1000: The Deluxe Edition">
+                        <input type="text" name="title" class="form-control" id="title" placeholder="Es.: Action Comics #1000: The Deluxe Edition" value="{{old('title', '')}}">
                     </div>
                 </div>
                 <div class="col-6">
@@ -25,7 +37,7 @@
                         <label for="series" class="form-label">
                             <h2 class="text-white">Inserisci la serie</h2>
                         </label>
-                        <input type="text" name="series" class="form-control" id="series" placeholder="Es.: Action Comics">
+                        <input type="text" name="series" class="form-control" id="series" placeholder="Es.: Action Comics" value="{{old('series', '')}}">
                     </div>
                 </div>
                 <div class="col-6">
@@ -33,7 +45,7 @@
                         <label for="type" class="form-label">
                             <h2 class="text-white">Inserisci la tipologia di fumetto</h2>
                         </label>
-                        <input type="text" name="type" class="form-control" id="type" placeholder="Es.: Comic Book">
+                        <input type="text" name="type" class="form-control" id="type" placeholder="Es.: Comic Book" value="{{old('type', '')}}">
                     </div>
                 </div>
                 <div class="col-6">
@@ -41,7 +53,7 @@
                         <label for="artists" class="form-label">
                             <h2 class="text-white">Inserisci gli artisti</h2>
                         </label>
-                        <input type="text" name="artists" class="form-control" id="artists">
+                        <input type="text" name="artists" class="form-control" id="artists" value="{{old('artists', '')}}">
                     </div>
                 </div>
                 <div class="col-6">
@@ -49,7 +61,7 @@
                         <label for="writers" class="form-label">
                             <h2 class="text-white">Inserisci gli scrittori</h2>
                         </label>
-                        <input type="text" name="writers" class="form-control" id="writers">
+                        <input type="text" name="writers" class="form-control" id="writers" value="{{old('writers', '')}}">
                     </div>
                 </div>
                 <div class="col-4">
@@ -57,7 +69,7 @@
                         <label for="sale_date" class="form-label">
                             <h2 class="text-white">Inserisci la data di pubblicazione</h2>
                         </label>
-                        <input type="text" name="sale_date" class="form-control" id="sale_date">
+                        <input type="text" name="sale_date" class="form-control" id="sale_date" placeholder="YYYY/MM/DD" value="{{old('sale_date', '')}}">
                     </div>
                 </div>
                 <div class="col-3 ">
@@ -65,7 +77,7 @@
                         <label for="price" class="form-label">
                             <h2 class="text-white">Inserisci il prezzo</h2>
                         </label>
-                        <input type="text" name="price" class="form-control" id="price">
+                        <input type="text" name="price" class="form-control" id="price" value="{{old('price', '')}}">
                     </div>
                 </div>
                 <div class="col-9">
@@ -81,7 +93,7 @@
                         <label for="description" class="form-label">
                             <h2 class="text-white">Inserisci la descrizione</h2>
                         </label>
-                        <textarea type="url" name="description" class="form-control" id="description" rows="3"></textarea>
+                        <textarea type="url" name="description" class="form-control" id="description" rows="3">{{old('description', '')}}</textarea>
                     </div>
                 </div>
             </div>
