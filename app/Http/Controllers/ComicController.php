@@ -33,7 +33,8 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $request->validate(
+            [
             'title' => 'required|string|unique:comics',
             'thumb' => 'required|url:http,https',
             'type' => 'required|string',
@@ -43,7 +44,21 @@ class ComicController extends Controller
             'description' => 'required|string',
             'artists' => 'required|string',
             'writers' => 'required|string',
-        ]);
+        ],
+        [
+            'title.required' => 'il campo titolo è obbligatorio',
+            'title.unique' => "esiste già un fumetto con il titolo $request->title",
+            'series.required' => 'il campo serie è obbligatorio',
+            'series.unique' => "esiste già un fumetto della serie $request->series",
+            'thumb.required' => 'il campo immagine è obbligatorio',
+            'type.required' => 'il campo tipologia di fumetto è obbligatorio',
+            'price.required' => 'il campo prezzo è obbligatorio',
+            'sale_date.required' => 'il campo data di pubblicazione è obbligatorio',
+            'description.required' => 'il campo descrizione è obbligatorio',
+            'artists.required' => 'il campo artisti è obbligatorio',
+            'writers.required' => 'il campo scrittori è obbligatorio',
+        ]
+    );
 
         $data = $request->all();
 
@@ -79,10 +94,10 @@ class ComicController extends Controller
     {
         $request->validate([
             'title' => ['required', 'string', Rule::unique('comics')->ignore($comic->id)],
+            'series' => ['required', 'string', Rule::unique('comics')->ignore($comic->id)],
             'thumb' => 'required|url:http,https',
             'type' => 'required|string',
             'price' => 'required|string',
-            'series' => ['required', 'string', Rule::unique('comics')->ignore($comic->id)],
             'sale_date' => 'required|string',
             'description' => 'required|string',
             'artists' => 'required|string',
