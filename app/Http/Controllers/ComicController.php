@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 
 
@@ -77,9 +77,23 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
-    }
+        $request->validate([
+            'title' => ['required', 'string', Rule::unique('comics')->ignore($comic->id)],
+            'thumb' => 'required|url:http,https',
+            'type' => 'required|string',
+            'price' => 'required|string',
+            'series' => ['required', 'string', Rule::unique('comics')->ignore($comic->id)],
+            'sale_date' => 'required|string',
+            'description' => 'required|string',
+            'artists' => 'required|string',
+            'writers' => 'required|string',
+        ]);
 
+        $data = $request->all();
+
+        $comic->update($data);
+        return to_route('comics.show', $comic->id);
+    }
     /**
      * Remove the specified resource from storage.
      */
