@@ -21,7 +21,7 @@
     </div>
     @endif
     <div class="container create-comic-container">
-        <form action="{{ route('comics.store') }}" method="POST">
+        <form action="{{ route('comics.update', $comic->id) }}" method="POST">
             @csrf
             <div class="row">
                 <div class="col-6">
