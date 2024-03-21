@@ -6,6 +6,9 @@ use App\Models\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
+use App\Http\Requests\UpdateComicRequest;
+use App\Http\Requests\StoreComicRequest;
+
 
 
 class ComicController extends Controller
@@ -31,36 +34,10 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-        $request->validate(
-            [
-            'title' => 'required|string|unique:comics',
-            'thumb' => 'required|url:http,https',
-            'type' => 'required|string',
-            'price' => 'required|string',
-            'series' => 'required|string|unique:comics',
-            'sale_date' => 'required|string',
-            'description' => 'required|string',
-            'artists' => 'required|string',
-            'writers' => 'required|string',
-        ],
-        [
-            'title.required' => 'il campo titolo è obbligatorio',
-            'title.unique' => "esiste già un fumetto con il titolo $request->title",
-            'series.required' => 'il campo serie è obbligatorio',
-            'series.unique' => "esiste già un fumetto della serie $request->series",
-            'thumb.required' => 'il campo immagine è obbligatorio',
-            'type.required' => 'il campo tipologia di fumetto è obbligatorio',
-            'price.required' => 'il campo prezzo è obbligatorio',
-            'sale_date.required' => 'il campo data di pubblicazione è obbligatorio',
-            'description.required' => 'il campo descrizione è obbligatorio',
-            'artists.required' => 'il campo artisti è obbligatorio',
-            'writers.required' => 'il campo scrittori è obbligatorio',
-        ]
-    );
-
-        $data = $request->all();
+        
+        $data = $request->validated();
 
         $comic = new Comic();
 
@@ -90,21 +67,9 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
-        $request->validate([
-            'title' => ['required', 'string', Rule::unique('comics')->ignore($comic->id)],
-            'series' => ['required', 'string', Rule::unique('comics')->ignore($comic->id)],
-            'thumb' => 'required|url:http,https',
-            'type' => 'required|string',
-            'price' => 'required|string',
-            'sale_date' => 'required|string',
-            'description' => 'required|string',
-            'artists' => 'required|string',
-            'writers' => 'required|string',
-        ]);
-
-        $data = $request->all();
+        $data = $request->validated();
 
         $comic->update($data);
         return to_route('comics.show', $comic->id);
